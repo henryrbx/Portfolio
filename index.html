@@ -1,234 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <title>Henry | Roblox Developer</title>
-  <style>
-    /* ================== Home Section & Typing Animation ================== */
-    .home {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 5rem;
-      min-height: 100vh;
-      padding: 5rem 9%;
-      flex-wrap: wrap;
-      background-color: #000;
-      color: #fff;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Work | Henry</title>
 
-    .home-img {
-      flex: 1 1 400px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .home-img img {
-      width: 100%;
-      max-width: 800px;
-      height: auto;
-      border-radius: 50%;
-      box-shadow: 0 0 25px #fff;
-      transition: transform 0.2s;
-    }
-
-    .home-img img:hover {
-      transform: scale(1.05);
-    }
-
-    .home-content {
-      flex: 1 1 400px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .home-content h1 {
-      font-size: 6rem;
-      font-weight: 700;
-      line-height: 1.3;
-      margin-bottom: 1rem;
-    }
-
-    .home-content h3 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .typing-text span::after {
-      content: '|';
-      animation: blink 0.7s infinite;
-      margin-left: 2px;
-    }
-
-    @keyframes blink {
-      0%, 50%, 100% { opacity: 1; }
-      25%, 75% { opacity: 0; }
-    }
-
-    .home-content p {
-      font-size: 1.6rem;
-      margin-bottom: 2rem;
-    }
-
-    .social-icons {
-      display: flex;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .social-icons a {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      width: 4rem;
-      height: 4rem;
-      background-color: transparent;
-      border: 0.2rem solid #fff;
-      font-size: 2rem;
-      border-radius: 50%;
-      color: #fff;
-      transition: 0.3s ease;
-    }
-
-    .social-icons a:hover {
-      transform: scale(1.3) translateY(-5px);
-      background-color: #fff;
-      color: black;
-      box-shadow: 0 0 20px #fff;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 1rem 2.8rem;
-      border-radius: 4rem;
-      font-size: 1.6rem;
-      color: #fff;
-      border: 2px solid #fff;
-      transition: 0.3s ease;
-      cursor: pointer;
-      text-align: center;
-    }
-
-    .btn:hover {
-      transform: scale3d(1.03);
-      background-color: #fff;
-      color: black;
-      box-shadow: 0 0 25px #fff;
-    }
-
-    header {
-      padding: 1rem 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: fixed;
-      width: 100%;
-      background: rgba(0,0,0,0.9);
-      z-index: 100;
-    }
-
-    header .logo {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #fff;
-    }
-
-    header nav a {
-      margin-left: 2rem;
-      color: #fff;
-      font-size: 1.6rem;
-      text-decoration: none;
-    }
-
-    header nav a.active {
-      border-bottom: 2px solid #fff;
-    }
-
-    @media (max-width: 768px) {
-      .home {
-        flex-direction: column;
-        text-align: center;
-      }
-      .home .home-img {
-        order: -1;
-        margin-bottom: 2rem;
-      }
-      .home-content h1 { font-size: 4rem; }
-      .home-content h3 { font-size: 2rem; }
-    }
-  </style>
+<link rel="stylesheet" href="workstyle.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 
-  <header>
-    <a href="#" class="logo">Henry</a>
-    <nav>
-      <a href="#" class="active">Home</a>
-      <a href="Mywork.html">My Work</a>
-      <a href="Contact.html">Contact</a>
-    </nav>
-  </header>
+<header>
+  <a href="index.html" class="logo">Henry</a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="MyWork.html" class="active">My Work</a>
+    <a href="Contact.html">Contact</a>
+  </nav>
+</header>
 
-  <section class="home">
-    <div class="home-img">
-      <img src="henry.png" alt="Henry">
+<section class="work">
+  <h1 class="title">My Work</h1>
+
+  <div class="grid-container">
+
+    <div class="grid-item">
+      <img src="assets/images/1.png" alt="Project 1" loading="lazy">
+      <div class="overlay">Project 1</div>
     </div>
-    <div class="home-content">
-      <h1>Hi, It's <span>Henry</span></h1>
-      <h3 class="typing-text">I'm a <span></span></h3>
-      <p>
-        I am a Roblox developer. I specialize in scripting, NPCs, UI, and game systems. DM me for commissions or collaborations!
-      </p>
-      <div class="social-icons">
-        <a href="https://www.roblox.com/users/YOUR_USER_ID/profile" target="_blank"><i class="fas fa-gamepad"></i></a>
-        <a href="https://github.com/AmiinMukhtaar" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://x.com/AMiiN8624589155" target="_blank"><i class="fab fa-x-twitter"></i></a>
-        <a href="https://discord.com/users/YOUR_DISCORD_ID" target="_blank"><i class="fab fa-discord"></i></a>
-        <a href="https://www.youtube.com/channel/YOUR_YOUTUBE_ID" target="_blank"><i class="fab fa-youtube"></i></a>
-      </div>
-      <a href="Contact.html" class="btn">Hire me</a>
+
+    <div class="grid-item">
+      <img src="assets/images/2.png" alt="Project 2" loading="lazy">
+      <div class="overlay">Project 2</div>
     </div>
-  </section>
 
-  <script>
-    // ================== Smooth Typing Animation ==================
-    const words = ["Developer", "Scripter", "3D Builder"];
-    let wordIndex = 0;
-    let letterIndex = 0;
-    let currentWord = "";
-    const span = document.querySelector(".typing-text span");
-    const typingSpeed = 100;
-    const erasingSpeed = 50;
-    const delayBetweenWords = 1500;
+    <div class="grid-item">
+      <img src="assets/images/3.png" alt="Project 3" loading="lazy">
+      <div class="overlay">Project 3</div>
+    </div>
 
-    function type() {
-      currentWord = words[wordIndex];
-      if (letterIndex < currentWord.length) {
-        span.textContent += currentWord[letterIndex];
-        letterIndex++;
-        setTimeout(type, typingSpeed);
-      } else {
-        setTimeout(erase, delayBetweenWords);
-      }
-    }
+    <div class="grid-item">
+      <img src="assets/images/4.png" alt="Project 4" loading="lazy">
+      <div class="overlay">Project 4</div>
+    </div>
 
-    function erase() {
-      if (letterIndex > 0) {
-        span.textContent = currentWord.slice(0, letterIndex - 1);
-        letterIndex--;
-        setTimeout(erase, erasingSpeed);
-      } else {
-        wordIndex = (wordIndex + 1) % words.length;
-        setTimeout(type, typingSpeed);
-      }
-    }
+  </div>
+</section>
 
-    document.addEventListener("DOMContentLoaded", type);
-  </script>
 </body>
 </html>
