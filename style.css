@@ -74,9 +74,9 @@ nav a.active {
 }
 
 .home-img img {
-    width: 100%;
-    max-width: 800px;
-    height: auto;
+    width: 230;  /* smaller than current */
+    height: 230; /* maintain square shape */
+    object-fit: cover;
     border-radius: 50%;
     filter: grayscale(100%);
     box-shadow: 0 0 40px rgba(255,255,255,0.15);
