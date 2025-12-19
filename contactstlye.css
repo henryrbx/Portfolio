@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+body { background:#000; color:#fff; }
+
+/* Container */
+.container { max-width: 1200px; margin:0 auto; padding:5rem 2rem; display:flex; flex-wrap:wrap; gap:4rem; justify-content:center; }
+
+/* Contact Info */
+.contact-info { flex:1 1 350px; }
+.contact-info h2 { font-size:3rem; margin-bottom:1rem; }
+.contact-info p { font-size:1.6rem; margin-bottom:1rem; line-height:1.5; }
+.discord-link { font-size:1.6rem; margin:1rem 0; }
+.discord-link a { margin-left:0.5rem; color:#7289da; text-decoration:underline; }
+
+/* Socials */
+.socials { display:flex; gap:1.5rem; margin-top:2rem; }
+.socials a { width:4rem; height:4rem; display:flex; align-items:center; justify-content:center; border:2px solid #fff; border-radius:50%; font-size:2rem; transition:0.3s; }
+.socials a:hover { background:#fff; color:#000; transform:translateY(-5px) scale(1.1); }
+
+/* Contact Form */
+.contact-form { flex:1 1 400px; background:#111; padding:2rem; border-radius:10px; box-shadow:0 0 30px rgba(255,255,255,0.1); }
+.contact-form form { display:flex; flex-direction:column; gap:1.5rem; }
+
+/* Input Box */
+.input-box { position:relative; }
+.input-box input, .input-box textarea { width:100%; padding:1rem; font-size:1.5rem; border-radius:8px; border:2px solid #fff; background:transparent; color:#fff; outline:none; }
+.input-box label { position:absolute; left:1rem; top:-0.7rem; background:#111; padding:0 0.3rem; font-size:1.2rem; color:#fff; }
+textarea { resize:none; min-height:150px; }
+
+/* Button */
+button { padding:1rem 2rem; font-size:1.5rem; border-radius:5rem; border:2px solid #fff; background:transparent; color:#fff; cursor:pointer; transition:0.3s; }
+button:hover { background:#fff; color:#000; }
+
+/* Status Text */
+#status { margin-top:1rem; font-size:1.5rem; }
+
+/* Responsive */
+@media(max-width:900px){
+  .container { flex-direction:column; align-items:center; }
+  .contact-info, .contact-form { width:100%; max-width:500px; }
+  h2 { font-size:2.5rem; }
+  p, .discord-link { font-size:1.4rem; }
+  .socials a { width:3.5rem; height:3.5rem; font-size:1.8rem; }
+  .input-box input, .input-box textarea { font-size:1.3rem; padding:0.8rem; }
+  button { font-size:1.3rem; padding:0.8rem 1.5rem; }
+}
