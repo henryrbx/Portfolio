@@ -5,8 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>My Work | Henry</title>
 
-<link rel="stylesheet" href="workstyle.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="workstyle.css">
+
+<!-- ScrollReveal -->
+<script src="https://unpkg.com/scrollreveal"></script>
 </head>
 <body>
 
@@ -18,7 +21,7 @@
     <a href="Contact.html">Contact</a>
   </nav>
 </header>
-
+<!--Items Grid Section -->
 <section class="work">
   <h1 class="title">My Work</h1>
 
@@ -45,17 +48,35 @@
     </div>
 
     <div class="grid-item">
-      <img src="https://raw.githubusercontent.com/henryrbx/Portfolio/main/Assets/5.png" alt="Project 4" loading="lazy">
+      <img src="https://raw.githubusercontent.com/henryrbx/Portfolio/main/Assets/5.png" alt="Project 5" loading="lazy">
       <div class="overlay">Project 5</div>
     </div>
 
     <div class="grid-item">
-      <img src="https://raw.githubusercontent.com/henryrbx/Portfolio/main/Assets/6.png" alt="Project 4" loading="lazy">
+      <img src="https://raw.githubusercontent.com/henryrbx/Portfolio/main/Assets/6.png" alt="Project 6" loading="lazy">
       <div class="overlay">Project 6</div>
     </div>
 
   </div>
 </section>
+
+<script>
+/* ===================== SCROLL REVEAL ===================== */
+ScrollReveal().reveal('.title', {
+  duration: 1200,
+  origin: 'top',
+  distance: '50px',
+  easing: 'ease-in-out'
+});
+
+ScrollReveal().reveal('.grid-item', {
+  duration: 1200,
+  origin: 'bottom',
+  distance: '50px',
+  easing: 'ease-in-out',
+  interval: 150
+});
+</script>
 
 </body>
 </html>
