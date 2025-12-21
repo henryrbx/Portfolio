@@ -175,9 +175,12 @@ nav a.active {
 
 .glass-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
   gap: 1.6rem;
+  margin-top: 3rem;    /* pushes cards down slightly */
+  margin-bottom: 0.5rem;  /* spacing before the button */
 }
+
 
 .glass-card {
   padding: 1.8rem;
