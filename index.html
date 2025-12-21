@@ -83,6 +83,7 @@
 
 
 const AVAILABLE_FOR_COMMISSIONS = true; // BADGE STATUS
+localStorage.setItem("commissionsOpen", AVAILABLE_FOR_COMMISSIONS ? "yes" : "no");
 
 const badge = document.getElementById("availability");
 const text = document.getElementById("status-text");
@@ -137,4 +138,3 @@ window.addEventListener("scroll", () => {
 
 </body>
 </html>
-
