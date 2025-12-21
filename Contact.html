@@ -4,44 +4,83 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact | Henry</title>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="stylesheet" href="contactstlye.css">
 </head>
 <body>
 
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="logo">Henry</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="mywork.html">My Work</a>
+    <a href="contact.html" class="active">Contact</a>
+  </nav>
+</header>
+
 <div class="container">
   <div class="contact-wrapper">
-    
-    <!-- Contact Info Section -->
+
+    <!-- LEFT -->
     <div class="contact-info">
       <h1>Contact Me</h1>
-      <p>Looking to hire a Roblox developer? Fill the form below or just add me on Discord!</p>
-      <p class="discord-note">Discord: <a href="https://discord.com/users/YOUR_DISCORD_ID" target="_blank">Henry#1234</a></p>
+      <p class="subtitle">
+        Hire a professional Roblox developer.  
+        The fastest way to reach me is Discord.
+      </p>
 
+      <!-- DISCORD BUTTON (FIXED & VISIBLE) -->
+      <a href="https://discord.gg/G93crY2JGC" target="_blank" class="discord-btn">
+        <i class="fab fa-discord"></i>
+        Join my Discord Server
+      </a>
+
+      <!-- SOCIAL ICONS -->
       <div class="socials">
-        <a href="https://www.roblox.com/users/5789251932/profile" target="_blank" title="Roblox Profile"><i class="fas fa-gamepad"></i></a>
-        <a href="https://github.com/henryrbx" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://x.com/henryonrbx" target="_blank" title="Twitter/X"><i class="fab fa-x-twitter"></i></a>
-        <a href="https://www.youtube.com/@HenryRbx" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.roblox.com/users/5789251932/profile" target="_blank">
+          <i class="fas fa-gamepad"></i>
+          <span>Roblox</span>
+        </a>
+
+        <a href="https://github.com/henryrbx" target="_blank">
+          <i class="fab fa-github"></i>
+          <span>GitHub</span>
+        </a>
+
+        <a href="https://x.com/henryonrbx" target="_blank">
+          <i class="fab fa-x-twitter"></i>
+          <span>X</span>
+        </a>
+
+        <a href="https://www.youtube.com/@HenryRbx" target="_blank">
+          <i class="fab fa-youtube"></i>
+          <span>YouTube</span>
+        </a>
       </div>
     </div>
 
-    <!-- Contact Form Section -->
+    <!-- RIGHT -->
     <div class="contact-form">
       <form action="https://formspree.io/f/xvzpgkzy" method="POST">
         <h2>Commission Request</h2>
+
         <div class="input-box">
           <input type="text" name="name" required>
           <label>Username / Studio</label>
         </div>
+
         <div class="input-box">
-          <input type="email" name="_replyto" required>
+          <input type="email" name="_replyto">
           <label>Email (optional)</label>
         </div>
+
         <div class="input-box textarea">
           <textarea name="message" required></textarea>
-          <label>Describe your Roblox project</label>
+          <label>Describe your project</label>
         </div>
+
         <button type="submit">Send Request</button>
         <p id="status"></p>
       </form>
@@ -51,29 +90,32 @@
 </div>
 
 <script>
-const form = document.querySelector(".contact-form form");
+const form = document.querySelector("form");
 const statusText = document.getElementById("status");
 
-form.addEventListener("submit", async function(e){
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
   statusText.textContent = "Sending...";
-  statusText.style.color="#aaa";
-  try{
-    const formData = new FormData(form);
-    const response = await fetch(form.action,{method:"POST",body:formData,headers:{'Accept':'application/json'}});
-    if(response.ok){
-      statusText.textContent="Request sent successfully!";
-      statusText.style.color="#4caf50";
+  statusText.style.color = "#aaa";
+
+  try {
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { "Accept": "application/json" }
+    });
+
+    if (response.ok) {
+      statusText.textContent = "Request sent successfully!";
+      statusText.style.color = "#4caf50";
       form.reset();
     } else {
-      const data=await response.json();
-      statusText.textContent=data?.errors?data.errors.map(e=>e.message).join(", "):"Failed to send";
-      statusText.style.color="#ff4d4d";
+      statusText.textContent = "Failed to send.";
+      statusText.style.color = "#ff4d4d";
     }
-  }catch(err){
-    console.error(err);
-    statusText.textContent="Failed to send";
-    statusText.style.color="#ff4d4d";
+  } catch {
+    statusText.textContent = "Failed to send.";
+    statusText.style.color = "#ff4d4d";
   }
 });
 </script>
