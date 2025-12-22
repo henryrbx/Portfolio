@@ -7,30 +7,35 @@
 
 <link rel="icon" href="https://raw.githubusercontent.com/henryrbx/Portfolio/main/Assets/dinoB.png" type="image/x-icon">
 
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="stylesheet" href="workstyle.css">
-
-<!-- ScrollReveal -->
 <script src="https://unpkg.com/scrollreveal"></script>
 </head>
+
 <body>
 
 <header>
   <a href="index.html" class="logo">Henry</a>
-  <nav>
+
+  <div class="menu-toggle" id="menuToggle">
+    <i class="fas fa-bars"></i>
+  </div>
+
+  <nav id="navMenu">
     <a href="index.html">Home</a>
     <a href="MyWork.html" class="active">My Work</a>
     <a href="Contact.html">Contact</a>
   </nav>
 </header>
-<!--Items Grid Section -->
+
 <section class="work">
   <h1 class="title">My Work</h1>
 
   <div class="grid-container">
 
     <div class="grid-item">
-      <img src="assets/1.png" alt="Project 1" loading="lazy">
+      <img src="https://raw.githubusercontent.com/henryrbx/Portfolio/main/Assets/1.png" alt="Project 1" loading="lazy">
       <div class="overlay">Project 1</div>
     </div>
 
@@ -63,23 +68,28 @@
 </section>
 
 <script>
-/* ===================== SCROLL REVEAL ===================== */
+/* MOBILE NAV */
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
+
+menuToggle.addEventListener("click", () => {
+  navMenu.classList.toggle("open");
+});
+
+/* SCROLL REVEAL */
 ScrollReveal().reveal('.title', {
-  duration: 1200,
+  duration: 1000,
   origin: 'top',
-  distance: '50px',
-  easing: 'ease-in-out'
+  distance: '40px'
 });
 
 ScrollReveal().reveal('.grid-item', {
-  duration: 1200,
+  duration: 1000,
   origin: 'bottom',
-  distance: '50px',
-  easing: 'ease-in-out',
-  interval: 150
+  distance: '40px',
+  interval: 120
 });
 </script>
 
 </body>
 </html>
-
