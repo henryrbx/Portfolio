@@ -1,151 +1,87 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-body {
-    background: #000;
-    color: #fff;
-    overflow-x: hidden;
-}
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+html { font-size:62.5%; }
+body { background:#000; color:#fff; overflow-x:hidden; }
 
 /* HEADER */
 header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    padding: 1.5rem 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(0,0,0,0.85);
-    z-index: 100;
-    transition: 0.3s;
+  position:fixed; top:0; width:100%;
+  padding:1.5rem 9%;
+  display:flex; justify-content:space-between; align-items:center;
+  background:rgba(0,0,0,0.9); z-index:100;
+}
+.logo { font-size:2.8rem; font-weight:700; text-decoration:none; color:#fff; }
+nav { display:flex; gap:2.5rem; }
+nav a { font-size:1.6rem; color:#fff; text-decoration:none; border-bottom:2px solid transparent; }
+nav a:hover, nav a.active { border-bottom:2px solid #fff; }
+
+/* HAMBURGER MENU */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 40px;   /* make it wider */
+  height: 32px;  /* make it taller */
+  cursor: pointer;
 }
 
-header .logo {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #fff;
-    transition: 0.3s ease;
+.menu-toggle span {
+  display: block;
+  height: 5px;       /* make lines thicker */
+  width: 100%;
+  background: #fff;
+  border-radius: 3px; /* slightly rounded */
+  transition: 0.3s;
 }
 
-header .logo:hover {
-    transform: scale(1.1);
-}
-
-nav a {
-    margin-left: 2rem;
-    font-size: 1.6rem;
-    color: #fff;
-    text-decoration: none;
-    transition: 0.3s;
-    border-bottom: 2px solid transparent;
-}
-
-nav a:hover,
-nav a.active {
-    border-bottom: 2px solid #fff;
-}
+/* X ANIMATION */
+.menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+.menu-toggle.active span:nth-child(2) { opacity:0; }
+.menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
 
 /* WORK SECTION */
-.work {
-    padding: 12rem 5% 5rem;
-    text-align: center;
-}
-
-.work .title {
-    font-size: 3rem;
-    margin-bottom: 3rem;
-    position: relative;
-    display: inline-block;
-}
-
-.work .title::after {
-    content: '';
-    display: block;
-    width: 60%;
-    height: 3px;
-    margin: 0.5rem auto 0;
-    background: #fff;
-    border-radius: 2px;
-}
+.work { padding:12rem 9% 6rem; text-align:center; }
+.work .title { font-size:3.2rem; margin-bottom:3rem; display:inline-block; }
+.work .title::after { content:''; display:block; width:60%; height:3px; background:#fff; margin:.6rem auto 0; border-radius:2px; }
 
 /* GRID */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+.grid-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:2rem; }
+.grid-item { position:relative; overflow:hidden; border-radius:16px; cursor:pointer; box-shadow:0 6px 20px rgba(255,255,255,0.12); transition: transform .35s ease, box-shadow .35s ease; }
+.grid-item:hover { transform:translateY(-6px) scale(1.02); box-shadow:0 12px 35px rgba(255,255,255,0.25); }
+.grid-item img { width:100%; height:100%; object-fit:cover; border-radius:16px; transition: transform .35s ease, filter .35s ease; }
+.grid-item:hover img { transform: scale(1.08); filter: brightness(1.1); }
+.overlay { position:absolute; bottom:0; width:100%; padding:.8rem 0; background:rgba(255,255,255,0.12); font-size:1.4rem; text-align:center; backdrop-filter:blur(6px); opacity:0; transform:translateY(100%); transition:.35s ease; }
+.grid-item:hover .overlay, .grid-item:active .overlay { opacity:1; transform:translateY(0); }
+
+/* REVEAL */
+.reveal { opacity:0; transform:translateY(40px); transition:.8s; }
+.reveal.active { opacity:1; transform:translateY(0); }
+
+/* MOBILE */
+@media (max-width:900px) {
+  html { font-size:56%; }
+  .menu-toggle { display:flex; }
+  nav {
+    position:absolute;
+    top:100%;
+    right:9%;
+    background:rgba(0,0,0,0.95);
+    border-radius:1.2rem;
+    padding:1.5rem 2rem;
+    display:none;
+    flex-direction:column;
+    gap:1.6rem;
+  }
+  nav.open { display:flex; }
+  nav a { margin:0; font-size:1.8rem; text-align:center; }
+  .work { padding:10rem 6% 4rem; }
 }
 
-.grid-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 16px;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(255,255,255,0.1);
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-.grid-item:hover {
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 10px 30px rgba(255,255,255,0.25);
-}
-
-/* IMAGE & OVERLAY */
-.grid-item img,
-.grid-item video {
-    width: 100%;
-    height: 100%;
-    display: block;
-    border-radius: 16px;
-    transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.grid-item:hover img,
-.grid-item:hover video {
-    transform: scale(1.08);
-    filter: brightness(1.1);
-}
-
-.overlay {
-    position: absolute;
-    bottom: -100%;
-    width: 100%;
-    padding: 0.4rem 0;
-    background: rgba(255,255,255,0.1);
-    color: #fff;
-   font-size: 1.3rem; 
-    text-align: center;
-    backdrop-filter: blur(5px);
-    transition: bottom 0.35s ease, background 0.35s ease;
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
-}
-
-.grid-item:hover .overlay {
-    bottom: 0;
-    background: rgba(255,255,255,0.15);
-}
-
-/* RESPONSIVE */
-@media(max-width:900px) {
-    header {
-        padding: 1rem 3%;
-    }
-    .work .title {
-        font-size: 2.5rem;
-    }
-}
-
-@media(max-width:600px) {
-    nav a {
-        font-size: 1.4rem;
-        margin-left: 1rem;
-    }
+/* SMALL PHONES */
+@media (max-width:480px) {
+  .work { padding:8rem 5% 3rem; }
+  .grid-container { gap:1rem; }
+  .grid-item img { border-radius:12px; }
+  .overlay { font-size:1.3rem; }
 }
