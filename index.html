@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Henry | Roblox Developer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Henry | Roblox Developer</title>
 
-<link rel="icon" href="https://raw.githubusercontent.com/henryrbx/Portfolio/main/Assets/dinoB.png" type="image/x-icon">
-
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="icon" href="https://raw.githubusercontent.com/henryrbx/Portfolio/main/Assets/dinoB.png" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body>
@@ -35,6 +34,7 @@
 
   <div class="home-content">
 
+    <!-- STATUS BADGE -->
     <div class="status-badge reveal" id="availability">
       <div class="status-dot"></div>
       <span id="status-text"></span>
@@ -47,6 +47,7 @@
       Roblox developer specializing in scripting, UI, NPCs, and complete game systems.
     </p>
 
+    <!-- SOCIAL ICONS -->
     <div class="social-icons">
       <a class="reveal" href="https://www.roblox.com/users/5789251932/profile" target="_blank">
         <i class="fas fa-cube"></i>
@@ -62,10 +63,13 @@
       </a>
     </div>
 
-    <a href="Contact.html" class="hire-btn reveal">Hire Me</a>
+    <!-- SINGLE HIRE BUTTON -->
+    <a href="#contact" class="hire-btn reveal" id="hireBtn">Hire Me</a>
+
   </div>
 </section>
 
+<!-- BOTTOM GLASS -->
 <section class="bottom-glass">
   <div class="glass-cards">
     <div class="glass-card reveal">
@@ -73,67 +77,85 @@
       <p>Advanced Roblox Lua systems & NPC AI</p>
     </div>
     <div class="glass-card reveal">
-      <h4>🎮 UI & UX</h4>
+      <h4>🎮 UI</h4>
       <p>Clean interfaces for all devices</p>
     </div>
     <div class="glass-card reveal">
-      <h4>🏗️ Game Systems</h4>
-      <p>Frameworks, optimization, tools</p>
+      <h4>🏗️ Modeling & Building</h4>
+      <p>Models, optimization, tools</p>
     </div>
   </div>
 </section>
 
+<!-- POPUP -->
+<div class="popup-overlay" id="popup">
+  <div class="popup-card">
+    <div class="popup-icon">🚫</div>
+    <h3>Commissions Closed</h3>
+    <p>
+      Commissions are closed right now.<br>
+      Please come back later.
+    </p>
+    <button id="closePopup">Got it</button>
+  </div>
+</div>
+
 <script>
-/* STATUS */
-const AVAILABLE_FOR_COMMISSIONS = true; // Change to true to open commissions
-localStorage.setItem("commissionsOpen", AVAILABLE_FOR_COMMISSIONS ? "yes" : "no");
+/* ===== COMMISSIONS TOGGLE ===== */
+const AVAILABLE_FOR_COMMISSIONS = true; // 🔁 change to true when open
+
+localStorage.setItem(
+  "commissionsOpen",
+  AVAILABLE_FOR_COMMISSIONS ? "yes" : "no"
+);
 
 const badge = document.getElementById("availability");
-const text = document.getElementById("status-text");
+const statusText = document.getElementById("status-text");
+const hireBtn = document.getElementById("hireBtn");
+const popup = document.getElementById("popup");
 
 if (AVAILABLE_FOR_COMMISSIONS) {
-  text.textContent = "Commissions open";
   badge.classList.add("open");
+  statusText.textContent = "Commissions open";
+  hireBtn.classList.add("available");
+  hireBtn.classList.remove("disabled");
+  hireBtn.onclick = () => location.href = "#contact";
 } else {
-  text.textContent = "Commissions closed";
   badge.classList.add("closed");
+  statusText.textContent = "Commissions closed";
+  hireBtn.classList.add("disabled");
+  hireBtn.classList.remove("available");
+  hireBtn.onclick = () => popup.classList.add("show");
 }
+
+/* POPUP CLOSE */
+const closePopup = document.getElementById("closePopup");
+closePopup.addEventListener("click", () => popup.classList.remove("show"));
+popup.addEventListener("click", (e) => { if(e.target === popup) popup.classList.remove("show"); });
 
 /* TYPING EFFECT */
 const words = ["Developer", "Scripter", "Game Creator"];
-let w = 0, l = 0;
-const span = document.querySelector(".typing-text span");
+let w=0,l=0;
+const typingSpan = document.querySelector(".typing-text span");
 
 function type() {
-  if (l < words[w].length) {
-    span.textContent += words[w][l++];
-    setTimeout(type, 100);
-  } else setTimeout(erase, 1500);
+  if (l < words[w].length) { typingSpan.textContent += words[w][l++]; setTimeout(type,100);}
+  else setTimeout(erase,1500);
 }
 function erase() {
-  if (l > 0) {
-    span.textContent = words[w].slice(0, --l);
-    setTimeout(erase, 60);
-  } else {
-    w = (w + 1) % words.length;
-    setTimeout(type, 300);
-  }
+  if (l > 0) { typingSpan.textContent = words[w].slice(0,--l); setTimeout(erase,60);}
+  else { w=(w+1)%words.length; setTimeout(type,300);}
 }
 type();
 
-/* REVEAL ANIMATION */
-document.querySelectorAll(".reveal").forEach((el,i) => {
-  setTimeout(() => el.classList.add("active"), i*150);
-});
+/* REVEAL */
+document.querySelectorAll(".reveal").forEach((el,i) => { setTimeout(()=>el.classList.add("active"), i*150); });
 
 /* MOBILE NAV */
 const menuToggle = document.getElementById("menuToggle");
 const navMenu = document.getElementById("navMenu");
-
-menuToggle.addEventListener("click", () => {
-  navMenu.classList.toggle("open");
-});
+menuToggle.addEventListener("click", () => navMenu.classList.toggle("open"));
 </script>
+
 </body>
 </html>
-
