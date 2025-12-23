@@ -9,7 +9,8 @@ header {
   position:fixed; top:0; width:100%;
   padding:1.5rem 9%;
   display:flex; justify-content:space-between; align-items:center;
-  background:rgba(0,0,0,0.9); z-index:100;
+  background:rgba(0,0,0,0.9);
+  z-index:100;
 }
 .logo { font-size:2.8rem; font-weight:700; text-decoration:none; color:#fff; }
 nav { display:flex; }
@@ -26,7 +27,7 @@ nav a:hover, nav a.active { border-bottom:2px solid #fff; }
 .home-content h3 { font-size:3rem; margin:1rem 0; }
 .home-content p { font-size:1.6rem; max-width:520px; margin-bottom:2.5rem; }
 
-/* STATUS */
+/* STATUS BADGE */
 .status-badge { display:inline-flex; align-items:center; gap:.8rem; padding:.7rem 1.8rem; border-radius:2rem; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.25); margin-bottom:2rem; }
 .status-dot { width:10px; height:10px; border-radius:50%; transition:0.3s; }
 .status-badge.open { color:#b9f6ca; }
@@ -36,11 +37,28 @@ nav a:hover, nav a.active { border-bottom:2px solid #fff; }
 
 /* SOCIAL ICONS */
 .social-icons { display:flex; gap:1.6rem; margin-bottom:3rem; }
-.social-icons a { width:4.6rem; height:4.6rem; border-radius:50%; display:flex; text-decoration: none; align-items:center; justify-content:center; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.25); font-size:2rem; color:#fff; transition:.3s; }
+.social-icons a { width:4.6rem; height:4.6rem; display:flex; align-items:center; justify-content:center; text-decoration:none; border-radius:50%; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.25); font-size:2rem; color:#fff; transition:.3s; }
 .social-icons a:hover { background:#fff; color:#000; }
 
-/* BUTTON */
-.hire-btn { display:inline-block; padding:1.2rem 3.4rem; border-radius:3rem; border:2px solid #fff; color:#fff; text-decoration:none; font-size:1.5rem; }
+/* HIRE BUTTON */
+.hire-btn { display:inline-block; padding:1.2rem 3.4rem; border-radius:3rem; border:2px solid #fff; color:#fff; text-decoration:none; font-size:1.5rem; transition:.3s ease; cursor:pointer; position:relative; }
+.hire-btn:hover { background:#fff; color:#000; }
+.hire-btn.available { border-color:#4caf50; color:#b9f6ca; }
+.hire-btn.available::after { content:""; position:absolute; inset:-6px; border-radius:inherit; border:2px solid rgba(76,175,80,0.6); animation:pulse 1.8s infinite; }
+.hire-btn.disabled { opacity:.45; cursor:not-allowed; pointer-events:none; border-color:rgba(255,255,255,0.4); }
+
+@keyframes pulse { 0% { transform:scale(0.95); opacity:1; } 100% { transform:scale(1.25); opacity:0; } }
+
+/* POPUP */
+.popup-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.6); backdrop-filter:blur(6px); display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:0.4s ease; z-index:999; }
+.popup-overlay.show { opacity:1; pointer-events:auto; }
+.popup-card { background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.25); border-radius:2rem; padding:3rem; width:min(360px,90%); text-align:center; color:#fff; box-shadow:0 0 40px rgba(0,0,0,0.6); transform:scale(0.85); animation:popupIn 0.45s ease forwards; }
+@keyframes popupIn { to { transform:scale(1); } }
+.popup-icon { font-size:3.5rem; margin-bottom:1rem; }
+.popup-card h3 { font-size:2.2rem; margin-bottom:.8rem; }
+.popup-card p { font-size:1.5rem; opacity:.85; margin-bottom:2rem; }
+.popup-card button { background:#fff; color:#000; border:none; padding:1rem 2.6rem; border-radius:2rem; font-size:1.4rem; cursor:pointer; transition:.3s; }
+.popup-card button:hover { transform:scale(1.05); }
 
 /* BOTTOM GLASS */
 .bottom-glass { width:min(1100px,90%); margin:auto; margin-bottom:4rem; }
