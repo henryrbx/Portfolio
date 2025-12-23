@@ -5,28 +5,24 @@ html { font-size:62.5%; }
 body { background:#000; color:#fff; overflow-x:hidden; padding-top:7rem; }
 
 /* HEADER */
-header {
-  position:fixed; top:0; width:100%; padding:1.5rem 9%;
-  display:flex; justify-content:space-between; align-items:center;
-  background:rgba(0,0,0,0.9); z-index:100;
-}
-.logo { font-size:2.8rem; font-weight:700; color:#fff; text-decoration:none; }
-nav { display:flex; gap:2rem; }
-nav a { font-size:1.6rem; color:#fff; text-decoration:none; border-bottom:2px solid transparent; transition:.3s; }
+header { position:fixed; top:0; width:100%; padding:1.5rem 9%; display:flex; justify-content:space-between; align-items:center; background:rgba(0,0,0,0.9); z-index:100; }
+.logo { font-size:2.8rem; font-weight:700; text-decoration:none; color:#fff; }
+nav { display:flex; }
+nav a { margin-left:2.5rem; font-size:1.6rem; color:#fff; text-decoration:none; border-bottom:2px solid transparent; }
 nav a:hover, nav a.active { border-bottom:2px solid #fff; }
 .menu-toggle { display:none; font-size:2.6rem; cursor:pointer; }
 
-/* CONTACT WRAPPER */
+/* CONTAINER */
 .container { max-width:1200px; margin:auto; padding:2rem 9%; }
 .contact-wrapper { display:grid; grid-template-columns:1fr 1fr; gap:4rem; }
 
 /* LEFT INFO */
 .contact-info h1 { font-size:4rem; margin-bottom:1rem; }
-.subtitle { font-size:1.6rem; color:#ccc; margin-bottom:2rem; }
-.hire-btn { display:inline-flex; align-items:center; gap:1rem; padding:1.2rem 2.5rem; border-radius:3rem; border:2px solid #fff; color:#fff; text-decoration:none; font-size:1.6rem; margin-bottom:2rem; transition:.3s; }
+.subtitle { font-size:1.6rem; color:#ccc; margin-bottom:2rem;  }
+.hire-btn { display:inline-flex; align-items:center; gap:1rem; justify-content: center; padding:1.2rem 2.5rem; border-radius:3rem; border:2px solid #fff; color:#fff; text-decoration:none; font-size:1.6rem; margin-bottom:2rem; transition:.3s; cursor:pointer; }
 .hire-btn:hover { background:#5865F2; color:#fff; }
 .social-icons { display:flex; gap:1.6rem; margin-bottom:2rem; }
-.social-icons a { width:4.6rem; height:4.6rem; display:flex; text-decoration: none;  align-items:center; justify-content:center; border-radius:50%; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.25); font-size:2rem; color:#fff; transition:.3s; }
+.social-icons a { width:4.6rem; height:4.6rem; display:flex; text-decoration: none; align-items:center; justify-content:center; border-radius:50%; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.25); font-size:2rem; color:#fff; transition:.3s; }
 .social-icons a:hover { background:#fff; color:#000; }
 
 /* FORM */
@@ -42,7 +38,7 @@ nav a:hover, nav a.active { border-bottom:2px solid #fff; }
 .input-box textarea:valid + label { top:-10px; font-size:1.1rem; color:#fff; background:#1a1a1a; padding:0 6px; }
 
 /* BUTTONS */
-button { width:100%; padding:1.2rem; border-radius:3rem; border:2px solid #fff; background:transparent; color:#fff; font-size:1.4rem; font-weight:600; cursor:pointer; transition:.3s; }
+button { width:100%; padding:1.2rem; border-radius:3rem; border:2px solid #fff; text-align: center; background:transparent; color:#fff; font-size:1.4rem; font-weight:600; cursor:pointer; transition:.3s; }
 button:hover { background:#5865F2; color:#fff; }
 button.disabled { border-color:#555; color:#777; cursor:not-allowed; }
 #status { margin-top:1rem; font-size:1.3rem; text-align:center; }
@@ -56,15 +52,10 @@ button.disabled { border-color:#555; color:#777; cursor:not-allowed; }
 .reveal.active { opacity:1; transform:translateY(0); }
 
 /* RESPONSIVE */
-@media(max-width:1024px) { .contact-wrapper{grid-template-columns:1fr; gap:3rem;} }
-@media(max-width:768px) { .hire-btn{font-size:1.4rem;padding:1rem 2rem;} .social-icons a{width:4rem;height:4rem;font-size:1.6rem;} }
-@media(max-width:480px) {
-  header{padding:1rem 5%;}
-  .menu-toggle{display:block;}
-  nav{position:absolute;top:100%;right:5%;background:rgba(0,0,0,0.95); border-radius:1.2rem; padding:1.5rem; display:none; flex-direction:column; gap:1.2rem;}
-  nav.open{display:flex;}
-  nav a{margin:0; font-size:1.6rem;}
-  .container{padding:2rem 5%;}
-  .contact-info{text-align:center;}
-  .social-icons{justify-content:center;}
+@media (max-width:900px) {
+  html { font-size:56%; }
+  .menu-toggle { display:block; }
+  nav { position:absolute; top:100%; right:9%; background:rgba(0,0,0,0.95); border-radius:1.2rem; padding:1.5rem 2rem; display:none; flex-direction:column; gap:1.6rem; }
+  nav.open { display:flex; }
+  .contact-wrapper { grid-template-columns:1fr; }
 }
