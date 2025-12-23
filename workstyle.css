@@ -11,20 +11,14 @@ header {
   display:flex; justify-content:space-between; align-items:center;
   background:rgba(0,0,0,0.9); z-index:100;
 }
-.logo { font-size:2.8rem; font-weight:700; text-decoration:none; color:#fff; }
-nav { display:flex; gap:2.5rem; }
-nav a { font-size:1.6rem; color:#fff; text-decoration:none; border-bottom:2px solid transparent; }
-nav a:hover, nav a.active { border-bottom:2px solid #fff; }
 
-/* HAMBURGER MENU */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 40px;   /* make it wider */
-  height: 32px;  /* make it taller */
-  cursor: pointer;
-}
+.logo { font-size:2.8rem; font-weight:700; text-decoration:none; color:#fff; }
+nav { display:flex; }
+nav a { margin-left:2.5rem; font-size:1.6rem; color:#fff; text-decoration:none; border-bottom:2px solid transparent; }
+nav a:hover, nav a.active { border-bottom:2px solid #fff; }
+.menu-toggle { display:none; font-size:2.6rem; cursor:pointer; }
+
+
 
 .menu-toggle span {
   display: block;
@@ -58,30 +52,17 @@ nav a:hover, nav a.active { border-bottom:2px solid #fff; }
 .reveal { opacity:0; transform:translateY(40px); transition:.8s; }
 .reveal.active { opacity:1; transform:translateY(0); }
 
+/* REVEAL */
+.reveal { opacity:0; transform:translateY(40px); transition:.8s; }
+.reveal.active { opacity:1; transform:translateY(0); }
+
 /* MOBILE */
 @media (max-width:900px) {
   html { font-size:56%; }
-  .menu-toggle { display:flex; }
-  nav {
-    position:absolute;
-    top:100%;
-    right:9%;
-    background:rgba(0,0,0,0.95);
-    border-radius:1.2rem;
-    padding:1.5rem 2rem;
-    display:none;
-    flex-direction:column;
-    gap:1.6rem;
-  }
+  .menu-toggle { display:block; }
+  nav { position:absolute; top:100%; right:9%; background:rgba(0,0,0,0.95); border-radius:1.2rem; padding:1.5rem 2rem; display:none; flex-direction:column; gap:1.6rem; }
   nav.open { display:flex; }
-  nav a { margin:0; font-size:1.8rem; text-align:center; }
-  .work { padding:10rem 6% 4rem; }
-}
-
-/* SMALL PHONES */
-@media (max-width:480px) {
-  .work { padding:8rem 5% 3rem; }
-  .grid-container { gap:1rem; }
-  .grid-item img { border-radius:12px; }
-  .overlay { font-size:1.3rem; }
+  nav a { margin:0; font-size:1.8rem; }
+  .home { flex-direction:column; text-align:center; padding:10rem 6% 4rem; }
+  .social-icons { justify-content:center; }
 }
